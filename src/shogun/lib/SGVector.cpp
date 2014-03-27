@@ -387,14 +387,14 @@ void SGVector<T>::free_data()
 }
 
 template<class T>
-bool SGVector<T>::equals(SGVector<T>& other)
+bool SGVector<T>::equals(SGVector<T>& other,float accuracy)
 {
 	if (other.vlen!=vlen)
 		return false;
 
 	for (index_t i=0; i<vlen; ++i)
 	{
-		if (other.vector[i]!=vector[i])
+            if (!CMath::fequals<T>(other.vector[i],vector[i], accuracy))
 			return false;
 	}
 
