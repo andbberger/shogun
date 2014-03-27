@@ -70,14 +70,14 @@ bool SGMatrix<T>::operator==(SGMatrix<T>& other)
 }
 
 template <class T>
-bool SGMatrix<T>::equals(SGMatrix<T>& other)
+bool SGMatrix<T>::equals(SGMatrix<T>& other,float accuracy)
 {
 	if (num_rows!=other.num_rows || num_cols!=other.num_cols)
 		return false;
 
 	for (int64_t i=0; i<int64_t(num_rows)*num_cols; ++i)
 	{
-		if (matrix[i]!=other.matrix[i])
+            if (!CMath::fequals<T>(matrix[i],other.matrix[i],accuracy))
 			return false;
 	}
 

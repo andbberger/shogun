@@ -119,10 +119,11 @@ template<class T> class SGMatrix : public SGReferencedData
 		/** operator overload for element-wise matrix comparison.
 		 * Note that only numerical data is compared
 		 *
+                 * @param accuracy float specifying precision floats are compared with
 		 * @param other matrix to compare with
 		 * @return true iff all elements are equal
 		 */
-		bool equals(SGMatrix<T>& other);
+		bool equals(SGMatrix<T>& other,float accuracy);
 
 		/** set matrix to a constant */
 		void set_const(T const_elem);

@@ -308,11 +308,12 @@ template<class T> class SGVector : public SGReferencedData
 		}
 
 		/** equals method up to precision for vectors (element-wise)
+                 * @param accuracy float specifying precision floats are compared with 
 		 * @param other vector to compare with
 		 * @return false if any element differs or if sizes are different,
 		 * true otherwise
 		 */
-		bool equals(SGVector<T>& other);
+		bool equals(SGVector<T>& other,float accuracy);
 
 		/** permute vector */
 		static void permute_vector(SGVector<T> vec);
